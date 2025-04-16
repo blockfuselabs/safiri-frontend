@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import Logo from "../../public/safiri.svg"
+import Logo from "../../public/safiri.svg";
+
+import Link from 'next/link'; 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,8 +29,12 @@ const Header = () => {
             <a href="#features" className="font-medium text-gray-700 hover:text-gray-900 transition">Features</a>
             <a href="#benefits" className="font-medium text-gray-700 hover:text-gray-900 transition">Benefits</a>
             <a href="#waitlist" className="font-medium text-gray-700 hover:text-gray-900 transition">Join Waitlist</a>
+            
             <button className="px-6 py-2 rounded-full bg-[#c4fc74] text-gray-900 font-medium hover:brightness-105 transition shadow-lg">
-              Launch App
+            <Link href= "/send-money">
+             Launch App
+            </Link>
+             
             </button>
           </nav>
 

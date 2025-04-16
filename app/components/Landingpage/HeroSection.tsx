@@ -2,9 +2,48 @@
 
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useIntersectionObserver } from "../Hooks/useIntersectionObserver";
+import { useRef as reactUseRef } from "react";
 
 const HeroSection = () => {
   const [animationStep, setAnimationStep] = useState(0);
+  const statsRef = useRef(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isStatsVisible = useIntersectionObserver(statsRef, {
+    threshold: 1,
+    rootMargin: "0px 0px -50px 0px",
+  });
+
+  useEffect(() => {
+    cardRefs.current = cardRefs.current.slice(0, 4);
+  }, []);
+
+  const stats = [
+    {
+      value: "5+",
+      label: "African Countries",
+      description: "Expanding cross-border reach",
+      icon: "🌍",
+    },
+    {
+      value: "10s",
+      label: "Average Transfer Time",
+      description: "Lightning-fast transactions",
+      icon: "⚡",
+    },
+    {
+      value: "1%",
+      label: "Transaction Fee",
+      description: "Lowest in the market",
+      icon: "💸",
+    },
+    {
+      value: "24/7",
+      label: "Service Availability",
+      description: "Always accessible",
+      icon: "🕒",
+    },
+  ];
 
   // Control the USSD payment animation steps
   useEffect(() => {
@@ -30,7 +69,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content Section */}
-          <div className="animate-slide-in-left space-y-6">
+          <div className="animate-fade-in-top  space-y-6">
             <div className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-white/70 backdrop-blur-md shadow-md">
               <span className="text-sm font-medium flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-[#c4fc74] animate-pulse"></span>
@@ -371,53 +410,45 @@ const HeroSection = () => {
             <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-green-100 rounded-full blur-md z-0 opacity-40 animate-blob animation-delay-2000"></div>
           </div>
         </div>
+                {/* stat section */}
+        <div
+          ref={statsRef}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-200 pt-12"
+        >
+          {stats.map((stat, index) => {
+            const isVisible = useIntersectionObserver(
+              { current: cardRefs.current[index] },
+              {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px",
+              }
+            );
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-200 pt-12 animate-fade-in-delay">
-          {[
-            {
-              value: "5+",
-              label: "African Countries",
-              description: "Expanding cross-border reach",
-              icon: "🌍",
-            },
-            {
-              value: "10s",
-              label: "Average Transfer Time",
-              description: "Lightning-fast transactions",
-              icon: "⚡",
-            },
-            {
-              value: "1%",
-              label: "Transaction Fee",
-              description: "Lowest in the market",
-              icon: "💸",
-            },
-            {
-              value: "24/7",
-              label: "Service Availability",
-              description: "Always accessible",
-              icon: "🕒",
-            },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center group p-4 rounded-xl transition-all duration-300 hover:bg-[#c4fc74]/10 hover:shadow-lg"
-            >
-              <div className="text-4xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">
-                {stat.icon}
+            return (
+              <div
+                key={stat.label}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                className={`text-center group p-4 rounded-xl transition-all duration-300 hover:bg-[#c4fc74]/10 hover:shadow-lg 
+                ${isVisible ? "animate-fade-in-top" : "opacity-0"}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-4xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                  {stat.icon}
+                </div>
+                <h3 className="text-4xl font-bold mb-2 text-[#c4fc74] group-hover:scale-110 transition-transform duration-300">
+                  {stat.value}
+                </h3>
+                <p className="text-gray-600 font-semibold group-hover:text-[#c4fc74] transition-colors duration-300">
+                  {stat.label}
+                </p>
+                <p className="text-xs text-gray-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  {stat.description}
+                </p>
               </div>
-              <h3 className="text-4xl font-bold mb-2 text-[#c4fc74] group-hover:scale-110 transition-transform duration-300">
-                {stat.value}
-              </h3>
-              <p className="text-gray-600 font-semibold group-hover:text-[#c4fc74] transition-colors duration-300">
-                {stat.label}
-              </p>
-              <p className="text-xs text-gray-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                {stat.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -425,3 +456,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+const useRef = reactUseRef;
