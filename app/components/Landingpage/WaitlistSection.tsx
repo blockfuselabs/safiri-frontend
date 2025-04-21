@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Send, CheckCircle } from 'lucide-react'
-import Image from 'next/image'
+
 
 const WaitlistSection = () => {
   const [email, setEmail] = useState('')

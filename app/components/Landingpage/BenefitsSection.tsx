@@ -107,9 +107,9 @@ const BenefitsSection = () => {
                 </div>
               </div>
               <p className="text-gray-600 mb-4">
-                "I send money to suppliers in Ghana every week. Safiri Send has
+                &ldquo;I send money to suppliers in Ghana every week. Safiri Send has
                 cut my transfer costs by 80% and the money arrives instantly.
-                Game changer for my business!"
+                Game changer for my business!&rdquo;
               </p>
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -131,9 +131,9 @@ const BenefitsSection = () => {
                 </div>
               </div>
               <p className="text-gray-600 mb-4">
-                "As a student in Kenya with family in Nigeria, I needed an
+                &ldquo;As a student in Kenya with family in Nigeria, I needed an
                 affordable way to receive support. Safiri Send is so easy to use
-                and the fees are minimal compared to others."
+                and the fees are minimal compared to others.&rdquo;
               </p>
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -155,10 +155,10 @@ const BenefitsSection = () => {
                 </div>
               </div>
               <p className="text-gray-600 mb-4">
-                "I tried every money transfer service out there. Nothing comes
+                &ldquo;I tried every money transfer service out there. Nothing comes
                 close to Safiri Send in terms of speed and cost. The USSD
                 feature means my mom in the village can receive money without a
-                smartphone."
+                smartphone.&rdquo;
               </p>
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (

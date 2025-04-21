@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, ArrowRight, Info, Lock, Globe, RefreshCw, ChevronDown } from 'lucide-react';
+import { ArrowRight, Info, Lock, Globe, RefreshCw, ChevronDown } from 'lucide-react';
 
 interface CurrencyOption {
   code: string;
@@ -24,7 +24,7 @@ export default function SendMoneyPage() {
   const receiveDropdownRef = useRef<HTMLDivElement>(null);
   
   // Currency options
-  const [currencies, setCurrencies] = useState<CurrencyOption[]>([
+  const currencies: CurrencyOption[] = [
     { code: 'GBP', flag: '🇬🇧', name: 'British Pound', balance: 850.50 },
     { code: 'USD', flag: '🇺🇸', name: 'US Dollar', balance: 1240.25 },
     { code: 'EUR', flag: '🇪🇺', name: 'Euro', balance: 920.75 },
@@ -33,7 +33,7 @@ export default function SendMoneyPage() {
     { code: 'GHS', flag: '🇬🇭', name: 'Ghanaian Cedi', balance: 3500 },
     { code: 'ZAR', flag: '🇿🇦', name: 'South African Rand', balance: 7500 },
     { code: 'RWF', flag: '🇷🇼', name: 'Rwandan Franc', balance: 250000 }
-  ]);
+  ];
   
   const [sendCurrency, setSendCurrency] = useState<CurrencyOption>(currencies[0]);
   const [receiveCurrency, setReceiveCurrency] = useState<CurrencyOption>(currencies[3]);
@@ -44,10 +44,10 @@ export default function SendMoneyPage() {
   // Calculate receiver amount
   const receiverGets = parseFloat(amount || "0") * exchangeRate;
   
-  // Total amount - removed the fee calculation
+ 
   const totalAmount = parseFloat(amount || "0");
   
-  // Close dropdown when clicking outside
+ 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (showCurrencyDropdown === 'send' && sendDropdownRef.current && 
@@ -73,9 +73,9 @@ export default function SendMoneyPage() {
   const updateExchangeRate = () => {
     setIsLoading(true);
     
-    // Simulate API call delay
+   
     setTimeout(() => {
-      // Generate a realistic exchange rate based on currency pairs
+     
       let baseRate = 0;
       
       if (sendCurrency.code === 'GBP' && receiveCurrency.code === 'NGN') baseRate = 2010;
@@ -112,12 +112,12 @@ export default function SendMoneyPage() {
     if (currentStep === 1) {
       setCurrentStep(2);
     } else {
-      // Process payment
+      
       setIsProcessing(true);
       setTimeout(() => {
-        // Redirect to success page in a real app
+      
         setIsProcessing(false);
-        // For demo: go back to step 1
+     
         setCurrentStep(1);
       }, 2000);
     }
@@ -192,7 +192,7 @@ export default function SendMoneyPage() {
                       type="text" 
                       value={amount}
                       onChange={(e) => {
-                        // Allow only numbers and decimal point
+                      
                         const re = /^[0-9]*\.?[0-9]*$/;
                         if (e.target.value === '' || re.test(e.target.value)) {
                           setAmount(e.target.value);
