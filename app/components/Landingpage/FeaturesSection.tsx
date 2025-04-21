@@ -4,7 +4,6 @@ import {
   Cpu,
   CreditCard,
   Globe,
-  Lock,
   UserCheck,
   Wallet,
   Smartphone,
