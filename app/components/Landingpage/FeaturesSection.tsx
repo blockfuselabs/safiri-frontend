@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Cpu, CreditCard, Globe, Lock, UserCheck, Wallet, Smartphone, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, Cpu, CreditCard, Globe, UserCheck, Wallet, Smartphone, ChevronRight } from 'lucide-react';
 
 const FeaturesSection = () => {
   return (

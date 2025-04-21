@@ -2,7 +2,6 @@
 import dynamic from "next/dynamic";
 import {
   Banknote,
-  Building,
   Users,
   ChartBar,
   ShieldCheck,
