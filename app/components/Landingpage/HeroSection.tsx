@@ -34,7 +34,7 @@ const HeroSection = () => {
             <div className="inline-block px-4 py-1.5 rounded-full border border-gray-200 bg-white/70 backdrop-blur-md shadow-md">
               <span className="text-sm font-medium flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-[#c4fc74] animate-pulse"></span>
-                Powered by Blockchain
+                Powered by Starknet
               </span>
             </div>
 

@@ -1,4 +1,5 @@
-import { Send, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { FaXTwitter, FaLinkedinIn,  FaFacebookF  } from "react-icons/fa6";
+import { FiSend } from "react-icons/fi";
 import Image from 'next/image';
 import Logo from "../../public/safiri.svg"
 
@@ -18,15 +19,15 @@ const Footer = () => {
               Blockchain-powered cross-border payment infrastructure making sending money across Africa fast, affordable, and accessible.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
-                <Twitter size={20} />
+              <a href="https://x.com/safiri_send" target="_blank" className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
+                <FaXTwitter size={20} />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full  flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
-                <Facebook size={20} />
+              {/* <a href="#" target="_blank"  className="h-10 w-10 rounded-full  flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
+                < FaFacebookF size={20} />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full  flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
-                <Linkedin size={20} />
-              </a>
+              <a href="#" target="_blank"  className="h-10 w-10 rounded-full  flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
+                <FaLinkedinIn size={20} />
+              </a> */}
             </div>
           </div>
 
@@ -43,13 +44,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li className="text-gray-400">info@safirisend.com</li>
-              <li className="text-gray-400">+234 800 SAFIRI</li>
+              <li className="text-gray-400">info@safirisend.xyz</li>
+              <li className="text-gray-400">+234 9032621846</li>
               <li className="text-gray-400">Jos, Nigeria</li>
             </ul>
             <div className="mt-6">
               <button className="px-6 py-2 rounded-full bg-[#c4fc74] text-gray-900 font-medium hover:brightness-105 transition flex items-center gap-2">
-                <Send size={16} /> Contact Us
+                <FiSend size={16} /> Contact Us
               </button>
             </div>
           </div>
