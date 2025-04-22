@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Safiri Send",
-  description: "  Blockchain-powered cross-border payment infrastructure making sending money across Africa fast, affordable, and accessible.",
+  description: "Blockchain-powered cross-border payment infrastructure making sending money across Africa fast, affordable, and accessible.",
   icons: {
     icon: "/safiri.svg",
     shortcut: "/safiri.svg",
