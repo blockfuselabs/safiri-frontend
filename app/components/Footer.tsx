@@ -1,4 +1,4 @@
-import { FaXTwitter, FaLinkedinIn,  FaFacebookF  } from "react-icons/fa6";
+import { FaXTwitter} from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
 import Image from 'next/image';
 import Logo from "../../public/safiri.svg"
@@ -22,12 +22,7 @@ const Footer = () => {
               <a href="https://x.com/safiri_send" target="_blank" className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
                 <FaXTwitter size={20} />
               </a>
-              {/* <a href="#" target="_blank"  className="h-10 w-10 rounded-full  flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
-                < FaFacebookF size={20} />
-              </a>
-              <a href="#" target="_blank"  className="h-10 w-10 rounded-full  flex items-center justify-center hover:bg-[#c4fc74] hover:text-gray-900 transition">
-                <FaLinkedinIn size={20} />
-              </a> */}
+           
             </div>
           </div>
 
