@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef} from "react";
 import { Shield, Zap, Smartphone, Globe, ArrowRight } from "lucide-react";
 
 const AboutSection = () => {
-
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -19,16 +18,21 @@ const AboutSection = () => {
       { threshold: 1 } 
     );
 
-    cardsRef.current.forEach((card) => {
+    // Store current cards in a variable to avoid the cleanup function using a stale reference
+    const currentCards = cardsRef.current;
+    
+    currentCards.forEach((card) => {
       if (card) observer.observe(card);
     });
 
     return () => {
-      cardsRef.current.forEach((card) => {
+      // Use the saved currentCards variable in the cleanup
+      currentCards.forEach((card) => {
         if (card) observer.unobserve(card);
       });
     };
   }, []);
+  
   return (
     <section id="about" className="py-24 md:py-32 bg-[#f6f6f6] overflow-hidden">
       <div className="container mx-auto px-4">
@@ -61,7 +65,7 @@ const AboutSection = () => {
                 </h3>
                 <p className="text-[#343444]/80 mb-8 text-lg text-center max-w-2xl mx-auto">
                   Safiri Send: Your gateway to seamless, instant, and secure
-                  cross-border payments. We're not just a platform—we're a
+                  cross-border payments. We&apos;re not just a platform—we&apos;re a
                   financial ecosystem.
                 </p>
               </div>
@@ -78,7 +82,7 @@ const AboutSection = () => {
                     icon: <Zap className="text-[#c4fc74]" size={24} />,
                     color: "bg-[#c4fc74]/20",
                     title: "Quantum-Speed Transfer",
-                    desc: "StarkNet's lightning network: Transmit funds faster than a thought, across continents in milliseconds.",
+                    desc: "StarkNet&apos;s lightning network: Transmit funds faster than a thought, across continents in milliseconds.",
                     animation: "animate-float-2",
                   },
                   {

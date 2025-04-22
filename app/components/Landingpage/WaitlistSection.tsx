@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Send, CheckCircle } from 'lucide-react'
 
-
 const WaitlistSection = () => {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
@@ -11,7 +10,6 @@ const WaitlistSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-   
     setSubmitted(true)
   }
 
@@ -77,7 +75,7 @@ const WaitlistSection = () => {
                     </div>
                     <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
                     <p className="text-gray-600 mb-6">
-                      You've been added to our waitlist. We'll keep you updated on our progress.
+                      You&apos;ve been added to our waitlist. We&apos;ll keep you updated on our progress.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
